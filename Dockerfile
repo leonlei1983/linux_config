@@ -17,7 +17,7 @@ RUN apt-get update && \
 	rm -rf /var/lib/apt/lists/*
 
 RUN ln -s python2.7 /usr/bin/python && \
-	mv /root/.vim/vimrc /root/.vimrc && \
+	mv /root/.vim/vimrc /root/.vimrc
 
 # Define default command.
 CMD ["/usr/sbin/sshd", "-D"]
