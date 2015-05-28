@@ -19,7 +19,9 @@ RUN ln -s /usr/bin/python python2.7 && \
 	mv /root/.vim/vimrc /root/.vimrc
 
 # Define default command.
-CMD ["/bin/bash"]
+CMD ["/usr/sbin/sshd", "-D"]
 
 # Expose ports.
 # EXPOSE 5901
+
+#ENTRYPOINT ["/bin/bash"]
