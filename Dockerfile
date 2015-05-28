@@ -1,23 +1,25 @@
 FROM ubuntu:15.04
 MAINTAINER Leon Lei <leonlei1983@gmail.com>
 
-# Install.
-RUN apt-get update
-RUN apt-get -y install -y curl git vim wget screen
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y lxde-core lxterminal tightvncserver
-RUN rm -rf /var/lib/apt/lists/*
-
-ADD .vim /root/.vim
-ADD .screenrc /root/.screenrc
+# Define working directory.
+WORKDIR /root
 
 # Set environment variables.
 ENV HOME /root
 
-# Define working directory.
-WORKDIR /root
+# Install.
+ADD .vim /root/.vim
+ADD .screenrc /root/.screenrc
+
+RUN apt-get update && \
+	apt-get install -y curl git vim wget screen python2.7 && \
+	rm -rf /var/lib/apt/lists/*
+
+RUN ln -s /usr/bin/python python2.7 && \
+	mv /root/.vim/vimrc /root/.vimrc
 
 # Define default command.
-CMD ["bash"]
+CMD ["/bin/bash"]
 
 # Expose ports.
-EXPOSE 5901
+# EXPOSE 5901
