@@ -12,11 +12,12 @@ ADD .vim /root/.vim
 ADD .screenrc /root/.screenrc
 
 RUN apt-get update && \
-	apt-get install -y curl git vim wget screen python2.7 && \
+	apt-get install -y curl git vim wget screen python2.7 openjdk-7-jdk && \
 	rm -rf /var/lib/apt/lists/*
 
-RUN ln -s /usr/bin/python python2.7 && \
-	mv /root/.vim/vimrc /root/.vimrc
+RUN ln -s python2.7 /usr/bin/python && \
+	mv /root/.vim/vimrc /root/.vimrc && \
+	git clone https://git.gitorious.org/gitorious/ce-installer.git && cd ce-installer && ./install
 
 # Define default command.
 CMD ["/usr/sbin/sshd", "-D"]
@@ -24,4 +25,4 @@ CMD ["/usr/sbin/sshd", "-D"]
 # Expose ports.
 # EXPOSE 5901
 
-#ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/bin/bash"]
