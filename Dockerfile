@@ -13,7 +13,8 @@ ADD .screenrc /root/.screenrc
 
 RUN apt-get update && \
 	apt-get install -y curl git vim wget screen python2.7 openjdk-7-jdk && \
-	git clone https://git.gitorious.org/gitorious/ce-installer.git && cd ce-installer && ./install && \
+	git clone https://git.gitorious.org/gitorious/ce-installer.git && \
+	/root/ce-installer/install && \
 	rm -rf /var/lib/apt/lists/*
 
 RUN ln -s python2.7 /usr/bin/python && \
