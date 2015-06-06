@@ -1,4 +1,4 @@
-FROM ubuntu:15.04
+FROM ubuntu
 MAINTAINER Leon Lei <leonlei1983@gmail.com>
 
 # Define working directory.
