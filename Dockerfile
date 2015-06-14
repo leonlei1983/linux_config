@@ -1,4 +1,4 @@
-FROM ubuntu:15.10
+FROM ubuntu
 MAINTAINER Leon Lei <leonlei1983@gmail.com>
 
 ENV HOME /root
@@ -9,7 +9,7 @@ ADD .vim /root/.vim
 ADD .screenrc /root/.screenrc
 
 RUN apt-get update && \
-	apt-get install -y curl git ssh vim wget screen python2.7 openjdk-7-jdk openssh-server zip unzip && \
+	apt-get install -y curl git ssh vim wget screen python2.7 openjdk-7-jdk openssh-server zip unzip net-tools && \
 	apt-get autoclean && \
 	apt-get autoremove && \
 	rm -rf /var/lib/apt/lists/*
