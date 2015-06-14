@@ -10,6 +10,8 @@ ADD .screenrc /root/.screenrc
 
 RUN apt-get update && \
 	apt-get install -y curl git ssh vim wget screen python2.7 openjdk-7-jdk openssh-server zip unzip && \
+	apt-get autoclean && \
+	apt-get autoremove && \
 	rm -rf /var/lib/apt/lists/*
 
 RUN mv /root/.vim/vimrc /root/.vimrc && \
