@@ -16,9 +16,9 @@ RUN apt-get update && \
 
 RUN mkdir -p /var/run/sshd && \
 	echo 'root:root1234' | chpasswd && \
-	echo "GIT_PS1_SHOWUPSTREAM='auto'" >>  >> /root/.bashrc && \
-    echo "PS1='\u@\h [\033[1;31m$(__git_ps1 \" %s\")\033[0m \033[1;33m$PWD\033[0m ]\n$ '"  >> /root/.bashrc && \
-    echo "[ -f ~/.git-prompt.sh ] && . ~/.git-prompt.sh"  >> /root/.bashrc && \
+	echo "GIT_PS1_SHOWUPSTREAM='auto'" >> /root/.bashrc && \
+	echo "PS1='\u@\h [\033[1;31m$(__git_ps1 \" %s\")\033[0m \033[1;33m$PWD\033[0m ]\n$ '"  >> /root/.bashrc && \
+	echo "[ -f ~/.git-prompt.sh ] && . ~/.git-prompt.sh"  >> /root/.bashrc && \
 	sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config && \
 	sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
