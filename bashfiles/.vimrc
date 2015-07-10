@@ -119,7 +119,7 @@ set t_vb=
 set tm=500
 
 " ====tab expand to space====
-set expandtab
+"set expandtab
 set smarttab
 set tabstop=4
 set shiftwidth=4
