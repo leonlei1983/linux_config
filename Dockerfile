@@ -5,7 +5,7 @@ ENV HOME /root
 WORKDIR $HOME
 
 # Install.
-ADD bashfiles/* /root/
+ADD bashfiles /root/
 
 RUN apt-get update && \
 	apt-get install -y curl git ssh vim wget screen python2.7 openjdk-7-jdk \
