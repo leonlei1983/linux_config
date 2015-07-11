@@ -9,7 +9,7 @@ ADD bashfiles /root/
 
 RUN apt-get update && \
 	apt-get install -y curl git ssh vim wget screen python2.7 openjdk-7-jdk \
-	openssh-server zip unzip net-tools make ruby && \
+	openssh-server zip unzip net-tools make ruby lsof && \
 	apt-get autoclean && \
 	apt-get autoremove && \
 	rm -rf /var/lib/apt/lists/*
